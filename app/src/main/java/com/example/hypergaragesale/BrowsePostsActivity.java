@@ -19,7 +19,6 @@ public class BrowsePostsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private int num;
 
     private SQLiteDatabase db;
 
