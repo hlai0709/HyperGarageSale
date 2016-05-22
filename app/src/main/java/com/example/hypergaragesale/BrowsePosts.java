@@ -13,4 +13,17 @@ public class BrowsePosts {
         this.mPrice = price;
         this.mPicLink = picLink;
     }
+
+    public String getmPrice() {
+        return mPrice;
+    }
+
+    public String getmPicLink() {
+        return mPicLink;
+    }
+
+    public String getmTitle() {
+
+        return mTitle;
+    }
 }

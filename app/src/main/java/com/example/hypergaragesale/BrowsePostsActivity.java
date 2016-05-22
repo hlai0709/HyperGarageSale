@@ -43,7 +43,7 @@ public class BrowsePostsActivity extends AppCompatActivity {
         PostsDbHelper mDbHelper = new PostsDbHelper(this);
         db = mDbHelper.getReadableDatabase();
 
-        mAdapter = new PostsAdapter(getDataSet());
+        mAdapter = new PostsAdapter(getDataSet(),this);
         mRecyclerView.setAdapter(mAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
