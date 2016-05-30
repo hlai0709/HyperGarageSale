@@ -50,6 +50,7 @@ public class ProccessBitmapTask extends AsyncTask<Integer, Void, Bitmap> {
             final ImageView imageView = imageViewReference.get();
             if (imageView != null) {
                 holder.imageView.setImageBitmap(bitmap);
+              //  holder.imageView.setImageDrawable(android.R.drawable.);
             }
         }
     }
@@ -112,6 +113,7 @@ public class ProccessBitmapTask extends AsyncTask<Integer, Void, Bitmap> {
         options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
 
 
+
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeFile(filename, options);
@@ -123,6 +125,7 @@ public class ProccessBitmapTask extends AsyncTask<Integer, Void, Bitmap> {
         public AsyncDrawable(Resources res, Bitmap bitmap,
                              ProccessBitmapTask bitmapWorkerTask) {
             super(res, bitmap);
+
             bitmapWorkerTaskReference =
                     new WeakReference<ProccessBitmapTask>(bitmapWorkerTask);
         }

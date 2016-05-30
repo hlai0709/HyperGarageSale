@@ -20,7 +20,8 @@ public class PostsDbHelper extends SQLiteOpenHelper {
                     Posts.PostEntry.COLUMN_NAME_TITLE + TEXT_TYPE + COMMA_SEP +
                     Posts.PostEntry.COLUMN_NAME_DESCRIPTION + TEXT_TYPE + COMMA_SEP +
                     Posts.PostEntry.COLUMN_NAME_PRICE + TEXT_TYPE + COMMA_SEP +
-                    Posts.PostEntry.COLUMN_NAME_PHOTO_DIR + TEXT_TYPE +
+                    Posts.PostEntry.COLUMN_NAME_PHOTO_DIR + TEXT_TYPE + COMMA_SEP +
+                    Posts.PostEntry.COLUMN_NAME_ADDRESS + TEXT_TYPE +
             " )";
 
     private static final String SQL_DELETE_ENTRIES =
@@ -42,13 +43,13 @@ public class PostsDbHelper extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    /*
+/*
     public Integer deleteLastEntryData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + DATABASE_NAME,null);
         res.moveToLast();
         String id = res.getString(0);
-        int result = db.delete(DATABASE_NAME,"Post_ID = ?",new String[] {id});
+        int result = db.delete(DATABASE_NAME,"_id = ?",new String[] {id});
         Log.v("Delete returned : ", Integer.toString(result));
         return result;
     }*/

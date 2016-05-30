@@ -31,6 +31,7 @@ public class NewPostActivity extends AppCompatActivity {
     private EditText titleText;
     private EditText descText;
     private EditText priceText;
+    private EditText addressText;
     private Button picButton;
     private int lastPostId = 0;
     private PostsDbHelper mDbHelper = new PostsDbHelper(this);
@@ -53,6 +54,7 @@ public class NewPostActivity extends AppCompatActivity {
         titleText = (EditText)findViewById(R.id.textView_title);
         descText = (EditText)findViewById(R.id.textView_desc);
         priceText = (EditText)findViewById(R.id.textView_price);
+        addressText = (EditText) findViewById(R.id.textView_address);
 
         // Gets the data repository in write mode
         db = mDbHelper.getWritableDatabase();
@@ -79,6 +81,8 @@ public class NewPostActivity extends AppCompatActivity {
         values.put(Posts.PostEntry.COLUMN_NAME_TITLE, titleText.getText().toString());
         values.put(Posts.PostEntry.COLUMN_NAME_DESCRIPTION, descText.getText().toString());
         values.put(Posts.PostEntry.COLUMN_NAME_PRICE, priceText.getText().toString());
+        values.put(Posts.PostEntry.COLUMN_NAME_ADDRESS, addressText.getText().toString());
+        values.put(Posts.PostEntry.COLUMN_NAME_PHOTO_DIR,"NULL");
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -87,6 +91,9 @@ public class NewPostActivity extends AppCompatActivity {
                 null,
                 values);
         picButton.setEnabled(true);
+
+        //getApplicationContext().getResources()
+
         return newRowId;
     }
 
@@ -141,4 +148,9 @@ public class NewPostActivity extends AppCompatActivity {
         }
 
     }
+/*
+    public void DeletePost(View v) {
+        mDbHelper.deleteLastEntryData();
+        Toast.makeText(this,"Last database entry has been deleted!",Toast.LENGTH_LONG).show();
+    }*/
 }

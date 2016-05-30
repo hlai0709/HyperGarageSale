@@ -50,6 +50,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             intent.putExtra("img_link",browsePosts.getmPicLink());
             intent.putExtra("itemTitle",browsePosts.getmTitle());
             intent.putExtra("itemPrice",browsePosts.getmPrice());
+            intent.putExtra("itemDescription",browsePosts.getmDescription());
+            intent.putExtra("itemAddress",browsePosts.getmAddress());
             this.ctx.startActivity(intent) ;
         }
     }
@@ -91,13 +93,25 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         //add decode image code here (test)
         int reqWidth = 0;
         int reqHeight = 0;
-        reqWidth = holder.imageView.getLayoutParams().width;
-        reqHeight = holder.imageView.getLayoutParams().height;
+       // reqWidth = holder.imageView.getLayoutParams().width;
+        //reqHeight = holder.imageView.getLayoutParams().height;
         //holder.imageView.setImageBitmap(decodeSampledBitmapFromFile(imageFile.getAbsolutePath(),
           //      reqWidth,reqHeight));
         loadBitmap(1,holder.imageView,imageFile.getAbsolutePath(),holder);
 
     }
+
+    /*
+    public void loadBitmap(int resId, ImageView imageView,String fileName) {
+        if (ProccessBitmapTask.cancelPotentialWork(resId, imageView)) {
+            final ProccessBitmapTask task = new ProccessBitmapTask(imageView,fileName);
+            final ProccessBitmapTask.AsyncDrawable asyncDrawable =
+                    new ProccessBitmapTask.AsyncDrawable(, mPlaceHolderBitmap, task);
+            imageView.setImageDrawable(asyncDrawable);
+            task.execute(resId);
+        }
+    }*/
+
 
     public void loadBitmap(int resId, ImageView imageView, String fileName,ViewHolder holder) {
         ProccessBitmapTask task = new ProccessBitmapTask(imageView,fileName,holder);

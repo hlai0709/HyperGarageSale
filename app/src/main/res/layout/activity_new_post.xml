@@ -45,6 +45,13 @@
 
         <EditText
             android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/address_hint"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:id="@+id/textView_address" />
+
+        <EditText
+            android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="top"
@@ -53,14 +60,6 @@
             android:id="@+id/textView_desc"
             />
 
-
-        <!--<Button-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/button_post"-->
-            <!--android:id="@+id/button"-->
-            <!--android:onClick="newPostAdded"-->
-            <!--android:layout_gravity="right" />-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -73,6 +72,15 @@
                 android:id="@+id/picButton"
                 android:text="@string/photo" />
 
+            <!--Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:id="@+id/deletePost"
+                android:onClick="DeletePost"
+                android:layout_gravity="right"
+                android:layout_marginLeft="180dp"/>
+                -->
         </LinearLayout>
 
 

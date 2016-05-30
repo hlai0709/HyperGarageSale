@@ -71,6 +71,8 @@ public class BrowsePostsActivity extends AppCompatActivity {
                 Posts.PostEntry.COLUMN_NAME_TITLE,
                 Posts.PostEntry.COLUMN_NAME_PRICE,
                 Posts.PostEntry.COLUMN_NAME_PHOTO_DIR,
+                Posts.PostEntry.COLUMN_NAME_DESCRIPTION,
+                Posts.PostEntry.COLUMN_NAME_ADDRESS,
         };
 
         // How you want the results sorted in the resulting Cursor
@@ -93,9 +95,13 @@ public class BrowsePostsActivity extends AppCompatActivity {
                 browsePosts.add(new BrowsePosts(
                         cursor.getString(cursor.getColumnIndex(Posts.PostEntry.COLUMN_NAME_TITLE)),
                         cursor.getString(cursor.getColumnIndex(Posts.PostEntry.COLUMN_NAME_PRICE)),
-                        cursor.getString(cursor.getColumnIndex(Posts.PostEntry.COLUMN_NAME_PHOTO_DIR))));
+                        cursor.getString(cursor.getColumnIndex(Posts.PostEntry.COLUMN_NAME_PHOTO_DIR)),
+                        cursor.getString(cursor.getColumnIndex(Posts.PostEntry.COLUMN_NAME_DESCRIPTION)),
+                        cursor.getString(cursor.getColumnIndex(Posts.PostEntry.COLUMN_NAME_ADDRESS))));
             } while (cursor.moveToNext());
         }
+
+        cursor.close();
 
         return browsePosts;
     }
