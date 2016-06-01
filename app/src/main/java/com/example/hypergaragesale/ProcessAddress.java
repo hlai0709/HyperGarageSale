@@ -24,14 +24,13 @@ public class ProcessAddress extends AsyncTask<String,Void,List<Address>> {
     private String streetAddress;
 
 
-    public ProcessAddress(GoogleMap googleMap, Context ctx, String streetAddress){
+    public ProcessAddress(GoogleMap googleMap, Context ctx){
         this.googleMap = googleMap;
         this.ctx = ctx;
-        this.streetAddress = streetAddress;
     }
     @Override
     protected List<Address> doInBackground(String ... param) {
-        //streetAddress = addresses[0]
+        streetAddress = param[0];
         String test = "1111 Lockheed Martin Way, Sunnyvale, CA";
         if (test.equalsIgnoreCase(streetAddress)){
                 Log.v("The strings are equal!",streetAddress);

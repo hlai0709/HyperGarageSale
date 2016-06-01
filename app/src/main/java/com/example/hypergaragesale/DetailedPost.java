@@ -52,7 +52,7 @@ public class DetailedPost extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void loadItemLocation(GoogleMap googleMap){
-        ProcessAddress processAddressTask = new ProcessAddress(googleMap,this,itemAddress);
-        processAddressTask.execute("start");
+        ProcessAddress processAddressTask = new ProcessAddress(googleMap,this);
+        processAddressTask.execute(itemAddress);
     }
 }
