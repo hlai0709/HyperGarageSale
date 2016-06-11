@@ -148,9 +148,9 @@ public class NewPostActivity extends AppCompatActivity {
         }
 
     }
-/*
+
     public void DeletePost(View v) {
         mDbHelper.deleteLastEntryData();
         Toast.makeText(this,"Last database entry has been deleted!",Toast.LENGTH_LONG).show();
-    }*/
+    }
 }

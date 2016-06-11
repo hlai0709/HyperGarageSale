@@ -2,8 +2,10 @@ package com.example.hypergaragesale;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Henry Lai on 5/12/2016.
@@ -43,16 +45,16 @@ public class PostsDbHelper extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-/*
+
     public Integer deleteLastEntryData(){
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + DATABASE_NAME,null);
+        Cursor res = db.rawQuery("select * from " + Posts.PostEntry.TABLE_NAME,null);
         res.moveToLast();
         String id = res.getString(0);
-        int result = db.delete(DATABASE_NAME,"_id = ?",new String[] {id});
+        int result = db.delete(Posts.PostEntry.TABLE_NAME,"_id = ?",new String[] {id});
         Log.v("Delete returned : ", Integer.toString(result));
         return result;
-    }*/
+    }
 
     public int insertPicLink(String picPath, int rowId){
         String selection = Posts.PostEntry._ID + " LIKE ?";
