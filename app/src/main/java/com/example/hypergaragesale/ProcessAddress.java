@@ -10,7 +10,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -31,13 +30,9 @@ public class ProcessAddress extends AsyncTask<String,Void,List<Address>> {
     @Override
     protected List<Address> doInBackground(String ... param) {
         streetAddress = param[0];
-        String test = "1111 Lockheed Martin Way, Sunnyvale, CA";
-        if (test.equalsIgnoreCase(streetAddress)){
-                Log.v("The strings are equal!",streetAddress);
-        };
-
         List<Address> addressList = null;
-        Geocoder fwdGeocoder = new Geocoder(ctx,Locale.US);
+        /*Geocoder fwdGeocoder = new Geocoder(ctx,Locale.US);
+
         try{
             addressList = fwdGeocoder.getFromLocationName("1111 Lockheed Martin Way, Sunnyvale, CA",10);
             Log.v("input address: ",streetAddress);
@@ -45,6 +40,19 @@ public class ProcessAddress extends AsyncTask<String,Void,List<Address>> {
         }
         catch (IOException e){
 
+        }*/
+        Geocoder fwdGeocoder = new Geocoder(ctx,Locale.US);
+        try {
+            addressList = fwdGeocoder.getFromLocationName(streetAddress, 10);
+            while (addressList.size()==0) {
+                addressList = fwdGeocoder.getFromLocationName(streetAddress, 10);
+            }
+            if (addressList.size()>0) {
+                Address addr = addressList.get(0);
+                Log.v("result address: ", addr.toString());
+            }
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
         }
 
         return addressList;
