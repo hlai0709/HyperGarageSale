@@ -22,13 +22,13 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"/>
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCsJ_VhDwCgslC0XMOtNHGrccQLOuSi-lA"/>
         <activity
             android:name=".NewPostActivity"
-            android:parentActivityName=".BrowsePostsActivity"></activity>
+            android:parentActivityName=".BrowsePostsActivity">
+        </activity>
         <activity
             android:name=".BrowsePostsActivity"
             android:label="@string/title_activity_browse_posts">
@@ -37,8 +37,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable" />
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".SearchResultsActivity" />
         </activity>
         <activity android:name=".DetailedPost"></activity>
     </application>

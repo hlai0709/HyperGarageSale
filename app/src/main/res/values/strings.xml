@@ -7,8 +7,9 @@
     <string name="new_post_snackbar">Thanks for posting!</string>
     <string name="title_activity_browse_posts">BrowsePostsActivity</string>
     <string name="photo">Photo</string>
-    <string name="search_title">search_title</string>
+    <string name="search_title">search_posts</string>
     <string name="search_hint">search_hint</string>
     <string name="address_hint">Enter item location</string>
     <string name="google_app_id">your app id</string>
+    <string name="action_settings">action_setting</string>
 </resources>
