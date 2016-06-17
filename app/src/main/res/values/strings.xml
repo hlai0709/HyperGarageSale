@@ -12,4 +12,5 @@
     <string name="address_hint">Enter item location</string>
     <string name="google_app_id">your app id</string>
     <string name="action_settings">action_setting</string>
+    <string name="search_result">search_result</string>
 </resources>
