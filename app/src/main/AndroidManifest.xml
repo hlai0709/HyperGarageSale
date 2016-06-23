@@ -31,7 +31,9 @@
         </activity>
         <activity
             android:name=".BrowsePostsActivity"
+            android:theme="@style/Theme.MyCompatTheme"
             android:label="@string/title_activity_browse_posts">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,6 +43,7 @@
                 android:name="android.app.default_searchable"
                 android:value=".SearchResultsActivity" />
         </activity>
+
         <activity android:name=".DetailedPost"></activity>
 
         <activity android:name=".SearchResultActivity"

@@ -1,6 +1,7 @@
 package com.example.hypergaragesale;
 
 import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,6 +16,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -68,12 +70,26 @@ public class BrowsePostsActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu1,menu);
+        MenuItem searchItem = menu.findItem(R.id.search);
 
         //Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager)getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = null;
+
+        if (searchItem != null) {
+            searchView = (SearchView) searchItem.getActionView();
+        }
+        if (searchView != null) {
+            ComponentName cn = new ComponentName(this, SearchResultActivity.class);
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(cn));
+            //searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        }
+        return super.onCreateOptionsMenu(menu);
+        /*
         SearchView searchView = (SearchView)menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         return true;
+        */
     }
 
     @Override
